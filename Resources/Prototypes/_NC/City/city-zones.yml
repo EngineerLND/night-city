@@ -1560,12 +1560,12 @@
     name: "RZ 30rd Street Building 02"
     geometry:
     - kind: Polygon
-      global: true
+      z: 0
       vertices:
-      - -26,-39
       - -26,-53
+      - -26,-36
+      - -5,-36
       - -5,-53
-      - -5,-39
   - id: 411864e5-0241-5b96-a6e5-79cd498ccca7
     kind: Building
     parent: d678368a-9680-476d-91b1-5a400f5fb795
@@ -1876,7 +1876,7 @@
     name: "G103 Mission T3"
     geometry:
     - kind: Polygon
-      z: 0
+      global: true
       vertices:
       - -36,-19
       - -36,-22
@@ -1948,3 +1948,286 @@
       - -47,-72
       - -77,-72
       - -77,-56
+  - id: 33100ff7-7f3a-43e9-a582-4aa8f8c1e1af
+    kind: Apartment
+    parent: b47a903b-d4ba-41d2-8c07-a333e2767cfe
+    name: "1-2-2-1"
+    geometry:
+    - kind: Polygon
+      z: 1
+      vertices:
+      - -9,-12
+      - -9,-7
+      - -12,-7
+      - -12,-6
+      - -13,-6
+      - -13,-7
+      - -17,-7
+      - -17,-12
+  - id: cdbae508-ebf9-453f-a98e-5b6b43e0053a
+    kind: Apartment
+    parent: b47a903b-d4ba-41d2-8c07-a333e2767cfe
+    name: "1-2-1-1"
+    geometry:
+    - kind: Polygon
+      z: 0
+      vertices:
+      - -9,-12
+      - -9,-7
+      - -12,-7
+      - -12,-6
+      - -13,-6
+      - -13,-7
+      - -17,-7
+      - -17,-12
+  - id: e612698b-1ce9-4001-9556-193bb9578f42
+    kind: Apartment
+    parent: 3e64cbc4-0fdb-4553-a6d7-3d06a91a5e92
+    name: "1-1-1-1"
+    geometry:
+    - kind: Polygon
+      z: 0
+      vertices:
+      - -6,-32
+      - -6,-23
+      - -7,-23
+      - -7,-22
+      - -8,-22
+      - -8,-23
+      - -11,-23
+      - -11,-32
+  - id: 69450f32-94f8-4900-96e2-b1397a3beede
+    kind: Apartment
+    parent: 3e64cbc4-0fdb-4553-a6d7-3d06a91a5e92
+    name: "1-1-3-1"
+    geometry:
+    - kind: Polygon
+      z: 0
+      vertices:
+      - -6,-32
+      - -6,-23
+      - -7,-23
+      - -7,-22
+      - -8,-22
+      - -8,-23
+      - -11,-23
+      - -11,-32
+    - kind: Polygon
+      z: 2
+      vertices:
+      - -6,-32
+      - -6,-23
+      - -7,-23
+      - -7,-22
+      - -8,-22
+      - -8,-23
+      - -11,-23
+      - -11,-32
+  - id: a941f808-4978-47d8-bf2f-766192e5b9e6
+    kind: Apartment
+    parent: 3e64cbc4-0fdb-4553-a6d7-3d06a91a5e92
+    name: "1-1-4-1"
+    geometry:
+    - kind: Polygon
+      z: 3
+      vertices:
+      - -12,-32
+      - -12,-23
+      - -13,-23
+      - -13,-22
+      - -14,-22
+      - -14,-23
+      - -17,-23
+      - -17,-32
+  - id: c4f0836b-0f9c-4c90-ac73-025e3b0b0ad7
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-1-1"
+    geometry:
+    - kind: Polygon
+      z: 0
+      vertices:
+      - -7,-45
+      - -8,-45
+      - -8,-46
+      - -12,-46
+      - -12,-52
+      - -6,-52
+      - -6,-46
+      - -7,-46
+  - id: 510f08a2-94e1-4229-904a-19d0185bda41
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-1-2"
+    geometry:
+    - kind: Polygon
+      z: 0
+      vertices:
+      - -19,-52
+      - -19,-46
+      - -23,-46
+      - -23,-45
+      - -24,-45
+      - -24,-46
+      - -25,-46
+      - -25,-52
+  - id: 59722929-40f5-4e0a-9700-b3ed7db05a26
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-1-3"
+    geometry:
+    - kind: Polygon
+      z: 0
+      vertices:
+      - -7,-43
+      - -7,-42
+      - -6,-42
+      - -6,-37
+      - -13,-37
+      - -13,-42
+      - -8,-42
+      - -8,-43
+  - id: 0dfc7653-768b-4618-a500-f77a3bf6560f
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-2-2"
+    geometry:
+    - kind: Polygon
+      z: 1
+      vertices:
+      - -24,-46
+      - -23,-46
+      - -23,-47
+      - -16,-47
+      - -16,-52
+      - -25,-52
+      - -25,-47
+      - -24,-47
+  - id: 570b2adc-b7aa-4208-b4c1-577b4a675473
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-2-1"
+    geometry:
+    - kind: Polygon
+      z: 1
+      vertices:
+      - -19,-44
+      - -20,-44
+      - -20,-43
+      - -21,-43
+      - -21,-37
+      - -12,-37
+      - -12,-43
+      - -19,-43
+  - id: c4fea05a-7ae0-4151-a3da-dd7d4adbb9f8
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-2-3"
+    geometry:
+    - kind: Polygon
+      z: 1
+      vertices:
+      - -14,-46
+      - -13,-46
+      - -13,-47
+      - -6,-47
+      - -6,-52
+      - -15,-52
+      - -15,-47
+      - -14,-47
+  - id: e8632708-7464-44fc-ab9b-5bba4d8d068e
+    kind: MissionSlot
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "RZ 02 Mission T2"
+    geometry:
+    - kind: Polygon
+      z: 1
+      vertices:
+      - -12,-44
+      - -12,-45
+      - -11,-45
+      - -11,-46
+      - -6,-46
+      - -6,-37
+      - -11,-37
+      - -11,-44
+  - id: e8a34055-c20b-443e-a948-7a5e5d5da075
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-3-1"
+    geometry:
+    - kind: Polygon
+      z: 2
+      vertices:
+      - -7,-45
+      - -8,-45
+      - -8,-44
+      - -11,-44
+      - -11,-40
+      - -6,-40
+      - -6,-44
+      - -7,-44
+  - id: 83cf3def-33b2-46bd-8ea7-5b15b4c0be94
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-3-2"
+    geometry:
+    - kind: Polygon
+      z: 2
+      vertices:
+      - -13,-45
+      - -14,-45
+      - -14,-44
+      - -17,-44
+      - -17,-40
+      - -12,-40
+      - -12,-44
+      - -13,-44
+  - id: b88adc9f-ca70-4198-80e3-bf793311108e
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-3-3"
+    geometry:
+    - kind: Polygon
+      z: 2
+      vertices:
+      - -19,-45
+      - -20,-45
+      - -20,-44
+      - -23,-44
+      - -23,-40
+      - -18,-40
+      - -18,-44
+      - -19,-44
+  - id: 1f99d9d7-3f7e-4351-bb41-3712760e6210
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-3-4"
+    geometry:
+    - kind: Polygon
+      z: 2
+      vertices:
+      - -20,-47
+      - -19,-47
+      - -19,-48
+      - -16,-48
+      - -16,-52
+      - -21,-52
+      - -21,-48
+      - -20,-48
+  - id: 2fa74be8-c25f-498a-8af2-6feeb488ec8c
+    kind: Apartment
+    parent: 799feb23-41db-5003-b898-aa5e809b5d16
+    name: "2-2-3-5"
+    geometry:
+    - kind: Polygon
+      z: 2
+      vertices:
+      - -14,-47
+      - -13,-47
+      - -13,-48
+      - -10,-48
+      - -10,-52
+      - -15,-52
+      - -15,-48
+      - -14,-48
