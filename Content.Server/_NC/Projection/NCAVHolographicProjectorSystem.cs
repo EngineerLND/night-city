@@ -6,8 +6,8 @@ namespace Content.Server._NC.Projection.NCAVHolographicProjector;
 
 public sealed class NCAVHolographicProjectorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
