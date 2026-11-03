@@ -4,7 +4,7 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server._NC.Projection.NCAVHolographicProjector;
 
-public sealed class NCAVHolographicProjectorSystem : EntitySystem
+public sealed partial class NCAVHolographicProjectorSystem : EntitySystem
 {
     [Dependency] private SharedPointLightSystem _light = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
