@@ -1,0 +1,41 @@
+﻿- type: lobbyBackground
+  id: NCReadyToShoot
+  background: /Textures/_NC/LobbyScreens/ready-to-shoot.webp
+  title: lobby-ready-to-shoot-title
+  artist: lobby-ready-to-shoot-artist
+
+- type: lobbyBackground
+  id: NCDowntown
+  background: /Textures/_NC/LobbyScreens/downtown.webp
+  title: lobby-downtown-title
+  artist: lobby-downtown-artist
+
+- type: lobbyBackground
+  id: NCNightView
+  background: /Textures/_NC/LobbyScreens/city-night-view.webp
+  title: lobby-city-night-view-title
+  artist: lobby-city-night-view-artist
+
+- type: lobbyBackground
+  id: NCStreet
+  background: /Textures/_NC/LobbyScreens/cyberpunk-street.webp
+  title: lobby-cyberpunk-street-title
+  artist: lobby-cyberpunk-street-artist
+
+- type: lobbyBackground
+  id: NCStreet2
+  background: /Textures/_NC/LobbyScreens/cyberpunk-street-2.webp
+  title: lobby-cyberpunk-street-2-title
+  artist: lobby-cyberpunk-street-2-artist
+
+- type: lobbyBackground
+  id: NCTraumaTeam
+  background: /Textures/_NC/LobbyScreens/trauma-team.webp
+  title: lobby-trauma-team-title
+  artist: lobby-trauma-team-artist
+
+- type: lobbyBackground
+  id: NCMilitech
+  background: /Textures/_NC/LobbyScreens/militech.webp
+  title: lobby-militech-title
+  artist: lobby-militech-artist

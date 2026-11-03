@@ -6,6 +6,7 @@
     mode: PlaceFree
   components:
   - type: MapText
+    text: Откройте компонент MapText для изменения текста
   - type: Sprite
     state: pink
 
