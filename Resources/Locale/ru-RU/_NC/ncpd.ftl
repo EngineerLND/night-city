@@ -4,6 +4,8 @@ ent-ClothingUniformNCPDCommand = командная форма NCPD
     .desc = Форма, обозначающая командные полномочия внутри участка NCPD.
 ent-ClothingUniformNCPDChief = форма начальника NCPD
     .desc = Официальная форма политически уязвимого главы департамента.
+ent-ClothingUniformNCPDTactical = тактическая форма NCPD
+    .desc = Удобная тактическая форма для проведения оперативных действий и повседневной работы.
 
 ent-NCPDCadetIDCard = удостоверение кадета NCPD
 ent-NCPDOfficerIDCard = удостоверение офицера NCPD

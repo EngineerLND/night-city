@@ -29,6 +29,7 @@
   id: ClothingHeadHelmetHardsuitTraumaArmored
   name: Trauma Team armored hardsuit helmet
   description: Heavy combat medical hardsuit helmet deployed by Trauma Team rapid response commanders.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _NC/Clothing/Head/Hardsuits/trauma_armored_helmet.rsi
@@ -37,9 +38,10 @@
 
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
-  id: ClothingHeadHelmetHardsuitTrauma #ClothingHeadHelmetHardsuitMilitech
+  id: ClothingHeadHelmetHardsuitTrauma
   name: Trauma Team hardsuit helmet
   description: Standard armored helmet issued to Trauma Team emergency response personnel.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _NC/Clothing/Head/Hardsuits/trauma_helmet.rsi
@@ -51,6 +53,7 @@
   id: ClothingHeadHelmetHardsuitTraumaMed
   name: Trauma Team medical hardsuit helmet
   description: A specialized response helmet with integrated diagnostic visors for Trauma Team medics.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _NC/Clothing/Head/Hardsuits/trauma_med_helmet.rsi

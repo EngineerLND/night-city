@@ -1,5 +1,5 @@
-﻿defaultWindowTitle: Space Station 14
-windowIconSet: /Textures/Logo/icon
-splashLogo: /Textures/Logo/logo.png
+﻿defaultWindowTitle: Night City 2045 # NC edit
+windowIconSet: /Textures/_NC/Logo/icon
+splashLogo: /Textures/_NC/Logo/loading_screen.png
 
 # PJB PLEASE
