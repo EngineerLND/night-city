@@ -14,7 +14,7 @@ lobby-cyberpunk-street-2-title = street 2
 lobby-cyberpunk-street-2-artist = unknown
 
 lobby-thank-you-david-title = thank you, David
-lobby-thank-you-david-artist = Cyberpunk (Season 1, Episode 10)
+lobby-thank-you-david-artist = Cyberpunk (Season 1, episode 10)
 
 lobby-trauma-team-title = Trauma Team
 lobby-trauma-team-artist = Hua Ma
