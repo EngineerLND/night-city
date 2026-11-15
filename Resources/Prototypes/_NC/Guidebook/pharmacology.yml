@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 Astro
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# SPDX-FileComment: Community Funding Additional Permission applies; see COMMUNITY-FUNDING-PERMISSION.md.
+
+- type: guideEntry
+  id: NCPharmaOverviewGuide
+  name: guide-entry-nc-pharma-overview
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Overview.xml"
+
+- type: guideEntry
+  id: NCPharmaBrewingGuide
+  name: guide-entry-nc-pharma-brewing
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Brewing.xml"
+
+- type: guideEntry
+  id: NCPharmaStationsGuide
+  name: guide-entry-nc-pharma-stations
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Stations.xml"
+
+- type: guideEntry
+  id: NCPharmaFormularyGuide
+  name: guide-entry-nc-pharma-formulary
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Formulary.xml"
+
+- type: guideEntry
+  id: NCPharmaLaboratoryGuide
+  name: guide-entry-nc-pharma-laboratory
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Laboratory.xml"

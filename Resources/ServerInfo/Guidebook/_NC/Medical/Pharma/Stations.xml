@@ -1,0 +1,22 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-stations-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-stations-all"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-stations-kits"/>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaExtractor"/>
+<GuideEntityEmbed Entity="NCPharmaPurifier"/>
+<GuideEntityEmbed Entity="NCPharmaSynthesizerClinical"/>
+<GuideEntityEmbed Entity="NCPharmaSterileCabinet"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaFormulationStation"/>
+<GuideEntityEmbed Entity="NCPharmaFillingStation"/>
+<GuideEntityEmbed Entity="NCPharmaQcAnalyzer"/>
+<GuideEntityEmbed Entity="NCPharmaReactor"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaColdStorage"/>
+<GuideEntityEmbed Entity="NCPharmaRdConsole"/>
+<GuideEntityEmbed Entity="NCPharmaWasteBin"/>
+</Box>
+</Document>

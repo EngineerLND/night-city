@@ -1,0 +1,19 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-laboratory-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-laboratory-samples"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-laboratory-blood"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-laboratory-tissue"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-laboratory-vivarium"/>
+<Box>
+<GuideEntityEmbed Entity="NCLabBloodSampler"/>
+<GuideEntityEmbed Entity="NCLabWoundSwabKit"/>
+<GuideEntityEmbed Entity="NCLabSampleVial"/>
+<GuideEntityEmbed Entity="NCLabMetabolicAnalyzer"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="NCLabCultureStation"/>
+<GuideEntityEmbed Entity="NCBloodCentrifuge"/>
+<GuideEntityEmbed Entity="NCLabTissueIncubator"/>
+<GuideEntityEmbed Entity="NCLabVivarium"/>
+</Box>
+</Document>

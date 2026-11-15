@@ -1,0 +1,17 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-brewing-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-brewing-intro"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-brewing-recipe"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-brewing-source"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-brewing-extract"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-brewing-tips"/>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaSubstrateJug"/>
+<GuideEntityEmbed Entity="NCPharmaSolventJug"/>
+<GuideEntityEmbed Entity="NCPharmaRawBiomass"/>
+<GuideEntityEmbed Entity="NCPharmaRawCorporateStock"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaRawSeizedSample"/>
+</Box>
+</Document>

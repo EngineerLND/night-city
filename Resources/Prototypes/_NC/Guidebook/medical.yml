@@ -46,6 +46,12 @@
   id: NCPharmacologyGuide
   name: guide-entry-nc-pharmacology
   text: "/ServerInfo/Guidebook/_NC/Medical/Pharmacology.xml"
+  children:
+  - NCPharmaOverviewGuide
+  - NCPharmaBrewingGuide
+  - NCPharmaStationsGuide
+  - NCPharmaFormularyGuide
+  - NCPharmaLaboratoryGuide
 
 - type: guideEntry
   id: NCSurgeryGuide
