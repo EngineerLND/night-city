@@ -3,6 +3,7 @@
 // SPDX-FileComment: Community Funding Additional Permission applies; see COMMUNITY-FUNDING-PERMISSION.md.
 
 using Content.Server._NC.Medical.Pharmacology.Batch;
+using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._NC.Medical.Pharmacology.Lab;
@@ -58,6 +59,43 @@ public sealed partial class NCPharmaExtractorComponent : Component
 
     [DataField]
     public float WastePerRun = 2f;
+
+    // ---- brewed raw material ------------------------------------------------------------------------
+    // A container whose solution holds the brewed broth is accepted instead of ready-made raw material.
+
+    /// <summary>The reagent players brew from precursors. Its share of the solution is the extract purity.</summary>
+    [DataField]
+    public ProtoId<ReagentPrototype> BrewReagent = "NCPharmaRawBroth";
+
+    /// <summary>The by-product of a ruined brew. Its share of the solution becomes hidden contamination.</summary>
+    [DataField]
+    public ProtoId<ReagentPrototype> SludgeReagent = "NCPharmaSludge";
+
+    /// <summary>Less brewed broth than this is not worth running the extractor for.</summary>
+    [DataField]
+    public float MinimumBrew = 5f;
+
+    /// <summary>Raw units per reagent unit of broth.</summary>
+    [DataField]
+    public float UnitsPerReagent = 0.6f;
+
+    /// <summary>Best purity a home brew can reach, however clean the solution is.</summary>
+    [DataField]
+    public float BrewPurityCeiling = 0.8f;
+
+    /// <summary>Contamination of a brew that has no sludge at all.</summary>
+    [DataField]
+    public float BrewBaseContaminants = 0.05f;
+
+    /// <summary>Contamination added per unit share of sludge in the solution.</summary>
+    [DataField]
+    public float SludgeContamination = 0.6f;
+
+    [DataField]
+    public LocId BrewOrigin = "nc-pharma-origin-brewed";
+
+    [DataField]
+    public EntProtoId BrewOutput = "NCPharmaSourceCanisterStreet";
 }
 
 /// <summary>A sterile cabinet or a formulation station: it treats a pack's whole batch.</summary>

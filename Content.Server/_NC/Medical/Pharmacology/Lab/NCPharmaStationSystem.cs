@@ -5,6 +5,8 @@
 using Content.Server._NC.Medical.Pharmacology.Batch;
 using Content.Shared._NC.Medical.Pharmacology.Batch;
 using Content.Shared._NC.Medical.Pharmacology.Lab;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -33,6 +35,7 @@ public sealed partial class NCPharmaStationSystem : EntitySystem
     [Dependency] private NCPharmaBatchSystem _batches = default!;
     [Dependency] private NCBiotechActionSystem _actions = default!;
     [Dependency] private NCPharmaWasteSystem _waste = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
 
     public override void Initialize()
     {
@@ -115,15 +118,35 @@ public sealed partial class NCPharmaStationSystem : EntitySystem
         args.Handled = true;
         if (!_power.IsPowered(machine.Owner) ||
             GetLoaded(machine, machine.Comp.Slot) is not { } item ||
-            !TryComp<NCPharmaRawMaterialComponent>(item, out var raw) ||
             !_waste.CanTake(machine, machine.Comp.WastePerRun))
         {
             return;
         }
 
+        // Ready-made raw material, or a container with a brew the players cooked up themselves.
+        float units, purity, contaminants;
+        EntProtoId output;
+        string? unknownPool = null;
+        Entity<SolutionComponent>? brew = null;
+        if (TryComp<NCPharmaRawMaterialComponent>(item, out var raw))
+        {
+            (units, purity, contaminants, output, unknownPool) =
+                (raw.Units, raw.Purity, raw.Contaminants, raw.Output, raw.UnknownPool);
+        }
+        else if (TryReadBrew(machine.Comp, item, out var read))
+        {
+            (units, purity, contaminants, output) = (read.Units, read.Purity, read.Contaminants, machine.Comp.BrewOutput);
+            brew = read.Solution;
+        }
+        else
+        {
+            _popup.PopupEntity(Loc.GetString("nc-pharma-brew-unusable"), machine, args.User);
+            return;
+        }
+
         _waste.Add(machine, machine.Comp.WastePerRun);
         var coordinates = Transform(machine).Coordinates;
-        if (raw.UnknownPool is { } pool)
+        if (unknownPool is { } pool)
         {
             _actions.Resolve(args.User, "NCBiotechIsolate", machine.Owner);
             if (_batches.TryIsolateCompound(pool, item, Name(args.User), out var formula, out var codename))
@@ -138,20 +161,50 @@ public sealed partial class NCPharmaStationSystem : EntitySystem
         }
 
         var quality = _actions.Resolve(args.User, "NCBiotechExtract", machine.Owner).Quality;
-        var extract = Spawn(raw.Output, coordinates);
+        var extract = Spawn(output, coordinates);
         if (TryComp<NCPharmaSourceComponent>(extract, out var source))
         {
-            source.Units = raw.Units * machine.Comp.Efficiency * quality;
-            source.Purity = Math.Clamp(raw.Purity * machine.Comp.PurityRetention, 0f, 1f);
+            source.Units = units * machine.Comp.Efficiency * quality;
+            source.Purity = Math.Clamp(purity * machine.Comp.PurityRetention, 0f, 1f);
             Dirty(extract, source);
         }
 
         // The extract inherits the hidden contaminants of the raw material.
-        EnsureComp<NCPharmaSourceHiddenComponent>(extract).Contaminants = raw.Contaminants;
+        EnsureComp<NCPharmaSourceHiddenComponent>(extract).Contaminants = contaminants;
 
-        QueueDel(item);
+        // A brew is drawn out of the container, which stays in the machine; ready-made material is used up.
+        if (brew is { } solution)
+            _solutions.RemoveAllSolution(solution);
+        else
+            QueueDel(item);
         _hands.TryPickupAnyHand(args.User, extract);
         _popup.PopupEntity(Loc.GetString("nc-pharma-extracted"), machine, args.User);
+    }
+
+    /// <summary>
+    /// Reads a player-brewed solution. The share of broth in the whole solution is its purity, the share of
+    /// sludge its hidden contamination, so a clean reaction gives a clean extract and a ruined one does not.
+    /// </summary>
+    private bool TryReadBrew(
+        NCPharmaExtractorComponent extractor,
+        EntityUid container,
+        out (float Units, float Purity, float Contaminants, Entity<SolutionComponent> Solution) brew)
+    {
+        brew = default;
+        if (!_solutions.TryGetDrainableSolution(container, out var soln, out var solution))
+            return false;
+
+        var broth = (float) solution.GetTotalPrototypeQuantity(extractor.BrewReagent);
+        var total = (float) solution.Volume;
+        if (broth < extractor.MinimumBrew || total <= 0f)
+            return false;
+
+        var sludge = (float) solution.GetTotalPrototypeQuantity(extractor.SludgeReagent);
+        var purity = Math.Clamp(broth / total, 0f, 1f) * extractor.BrewPurityCeiling;
+        var contaminants = Math.Clamp(
+            extractor.BrewBaseContaminants + sludge / total * extractor.SludgeContamination, 0f, 1f);
+        brew = (broth * extractor.UnitsPerReagent, purity, contaminants, soln.Value);
+        return true;
     }
 
     // ---- sterile cabinet / formulation station ---------------------------------------------------------
