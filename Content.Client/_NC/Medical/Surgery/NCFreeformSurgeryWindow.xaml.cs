@@ -40,13 +40,15 @@ public sealed partial class NCFreeformSurgeryWindow : FancyWindow
     private string? _capabilityTool;
     private NCFreeformSurgeryCapabilitySummary[]? _capabilityLayout;
     private readonly List<Button> _capabilityButtons = [];
+    private readonly List<Button> _depthButtons = [];
+    private NCFreeformSurgeryLayerSummary[]? _depthLayout;
+    private float _depth;
 
     public NCFreeformSurgeryWindow(IPrototypeManager prototypes)
     {
         RobustXamlLoader.Load(this);
         _prototypes = prototypes;
 
-        DepthSlider.OnValueChanged += _ => OnDepthChanged();
         SurgicalField.InteractionRequested +=
             (zone, surface, wound, structure, minimumDepth, position) =>
                 InteractionRequested?.Invoke(zone, surface, wound, structure, minimumDepth, position);
@@ -54,8 +56,8 @@ public sealed partial class NCFreeformSurgeryWindow : FancyWindow
             (zone, surface, point) => AttachRequested?.Invoke(zone, surface, point);
         SurgicalField.SiteRequested +=
             (zone, surface, incision) => SiteRequested?.Invoke(zone, surface, incision);
-        SurgicalField.DepthAdjusted += delta =>
-            DepthSlider.Value = Math.Clamp(DepthSlider.Value + delta * 100f, DepthSlider.MinValue, DepthSlider.MaxValue);
+        // The wheel steps between the discrete tissue layers, exactly like the depth buttons.
+        SurgicalField.DepthAdjusted += delta => StepLayer(delta > 0f ? 1 : -1);
     }
 
     public void SetState(NCFreeformSurgeryState state, float predictedDepth)
@@ -77,7 +79,8 @@ public sealed partial class NCFreeformSurgeryWindow : FancyWindow
         MovementValue.FontColorOverride = SeverityColor(state.Movement);
 
         var displayedDepth = Math.Clamp(predictedDepth, 0f, 1f);
-        DepthSlider.Value = displayedDepth * 100f;
+        _depth = displayedDepth;
+        PopulateDepthButtons(state.Layers);
         DepthLabel.Text = DepthText(displayedDepth, state.Layers);
         LayerLabel.Text = Loc.GetString("nc-surgery-ui-access-depth", ("depth", AccessDepthName(state.AccessDepth)));
 
@@ -260,16 +263,67 @@ public sealed partial class NCFreeformSurgeryWindow : FancyWindow
         }
     }
 
-    private void OnDepthChanged()
+    private void PopulateDepthButtons(IReadOnlyList<NCFreeformSurgeryLayerSummary> layers)
+    {
+        var layout = layers.ToArray();
+        if (_depthLayout == null || !_depthLayout.SequenceEqual(layout))
+        {
+            _depthLayout = layout;
+            DepthButtons.RemoveAllChildren();
+            _depthButtons.Clear();
+            foreach (var layer in layout)
+            {
+                var target = layer.EndDepth;
+                var button = new Button
+                {
+                    Text = LayerName(layer.Kind),
+                    ToggleMode = true,
+                    HorizontalExpand = true,
+                    ToolTip = Loc.GetString("nc-surgery-ui-depth-button-tooltip",
+                        ("depth", target.ToString("P0"))),
+                };
+                button.OnPressed += _ => SelectDepth(target);
+                DepthButtons.AddChild(button);
+                _depthButtons.Add(button);
+            }
+        }
+
+        var active = ActiveLayerIndex(_depth);
+        for (var index = 0; index < _depthButtons.Count; index++)
+            _depthButtons[index].Pressed = index == active;
+    }
+
+    private int ActiveLayerIndex(float depth)
+    {
+        if (_depthLayout == null)
+            return -1;
+        for (var index = 0; index < _depthLayout.Length; index++)
+        {
+            if (depth >= _depthLayout[index].StartDepth && depth <= _depthLayout[index].EndDepth)
+                return index;
+        }
+        return -1;
+    }
+
+    private void StepLayer(int direction)
+    {
+        if (_depthLayout == null || _depthLayout.Length == 0)
+            return;
+        var next = Math.Clamp(Math.Max(ActiveLayerIndex(_depth), 0) + direction, 0, _depthLayout.Length - 1);
+        SelectDepth(_depthLayout[next].EndDepth);
+    }
+
+    private void SelectDepth(float depth)
     {
         if (_state == null)
             return;
-        var depth = DepthSlider.Value / 100f;
-        DepthLabel.Text = DepthText(depth, _state.Layers);
-        SurgicalField.SetPredictedDepth(depth);
-        PopulateSite(_state, depth);
+        _depth = Math.Clamp(depth, 0f, 1f);
+        PopulateDepthButtons(_state.Layers);
+        DepthLabel.Text = DepthText(_depth, _state.Layers);
+        SurgicalField.SetPredictedDepth(_depth);
+        PopulateSite(_state, _depth);
         if (!_updating)
-            DepthPredictionChanged?.Invoke(depth);
+            DepthPredictionChanged?.Invoke(_depth);
     }
 
     private static string DepthText(float depth, IReadOnlyList<NCFreeformSurgeryLayerSummary> layers)

@@ -85,6 +85,7 @@ nc-surgery-ui-access-depth = ACCESS: {$depth}
 nc-surgery-ui-state-unknown = Unknown
 nc-surgery-ui-status-resync = ● RESYNC
 nc-surgery-ui-status-paused = ● PAUSED
+nc-surgery-ui-depth-button-tooltip = Work at {$depth} depth
 nc-surgery-ui-depth-layer = {$depth} · {$layer}
 nc-surgery-ui-site-closed = closed skin
 nc-surgery-ui-site-status =

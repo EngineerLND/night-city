@@ -85,7 +85,7 @@ SPDX-FileComment: Community Funding Additional Permission applies; see COMMUNITY
                         <BoxContainer Margin="9 6" Orientation="Vertical" SeparationOverride="3">
                             <BoxContainer Orientation="Horizontal">
                                 <Label Text="{Loc 'nc-surgery-ui-depth'}" FontColorOverride="#62BDB6" MinWidth="110" />
-                                <Slider Name="DepthSlider" MinValue="0" MaxValue="100" HorizontalExpand="True" />
+                                <BoxContainer Name="DepthButtons" Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="2" />
                                 <Label Name="DepthLabel" MinWidth="130" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <Label Text="{Loc 'nc-surgery-ui-controls'}"
