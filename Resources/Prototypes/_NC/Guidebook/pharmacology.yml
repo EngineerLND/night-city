@@ -26,3 +26,33 @@
   id: NCPharmaLaboratoryGuide
   name: guide-entry-nc-pharma-laboratory
   text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Laboratory.xml"
+
+- type: guideEntry
+  id: NCPharmaQualityGuide
+  name: guide-entry-nc-pharma-quality
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Quality.xml"
+
+- type: guideEntry
+  id: NCPharmaReactorGuide
+  name: guide-entry-nc-pharma-reactor
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Reactor.xml"
+
+- type: guideEntry
+  id: NCPharmaPharmacopoeiaGuide
+  name: guide-entry-nc-pharma-pharmacopoeia
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Pharmacopoeia.xml"
+
+- type: guideEntry
+  id: NCPharmaFieldUseGuide
+  name: guide-entry-nc-pharma-fielduse
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/FieldUse.xml"
+
+- type: guideEntry
+  id: NCPharmaImplantsGuide
+  name: guide-entry-nc-pharma-implants
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Implants.xml"
+
+- type: guideEntry
+  id: NCPharmaWalkthroughGuide
+  name: guide-entry-nc-pharma-walkthrough
+  text: "/ServerInfo/Guidebook/_NC/Medical/Pharma/Walkthrough.xml"

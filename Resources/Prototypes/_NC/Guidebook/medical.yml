@@ -52,6 +52,12 @@
   - NCPharmaStationsGuide
   - NCPharmaFormularyGuide
   - NCPharmaLaboratoryGuide
+  - NCPharmaQualityGuide
+  - NCPharmaReactorGuide
+  - NCPharmaPharmacopoeiaGuide
+  - NCPharmaFieldUseGuide
+  - NCPharmaImplantsGuide
+  - NCPharmaWalkthroughGuide
 
 - type: guideEntry
   id: NCSurgeryGuide

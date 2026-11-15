@@ -1,0 +1,15 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-quality-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-quality-qc"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-quality-status"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-quality-grades"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-quality-impurities"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-quality-cold"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-quality-waste"/>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaQcAnalyzer"/>
+<GuideEntityEmbed Entity="NCPharmaColdStorage"/>
+<GuideEntityEmbed Entity="NCPharmaWasteCanister"/>
+<GuideEntityEmbed Entity="NCPharmaWasteBin"/>
+</Box>
+</Document>

@@ -1,0 +1,12 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-fielduse-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-fielduse-local"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-fielduse-dress"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-fielduse-bag"/>
+<Box>
+<GuideEntityEmbed Entity="NCTraumaTeamCombatMedicBag"/>
+<GuideEntityEmbed Entity="NCTraumaTeamPenTraumaAnalgesic"/>
+<GuideEntityEmbed Entity="NCTraumaTeamPenProcoagulant"/>
+<GuideEntityEmbed Entity="NCTraumaTeamPenAntitoxin"/>
+</Box>
+</Document>

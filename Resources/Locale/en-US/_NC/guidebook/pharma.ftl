@@ -107,3 +107,110 @@ nc-guide-pharma-laboratory-tissue = [head=2]Tissue products[/head]
 nc-guide-pharma-laboratory-vivarium = [head=2]Vivarium and research[/head]
     The [color=#58e6d9]vivarium post[/color] is an observation post for experimental pharmacology and toxicology. A dose given to a patient near a working post is written down as a study: what the patient received and how the body took it. The [color=#58e6d9]research console[/color] turns those studies into new versions of a formula and keeps the laboratory journal.
 guide-entry-nc-pharma-laboratory = Laboratory and diagnostics
+nc-guide-pharma-quality-h = [head=1]Quality control and storage[/head]
+nc-guide-pharma-quality-qc = [head=2]Quality control[/head]
+    The [color=#58e6d9]pharmaceutical QC analyzer[/color] measures what a batch really contains. Insert a dose pack, tick the tests you want and run the analysis. Each run uses up one dose of the pack as the sample, so test a pack you can spare.
+    Tests: [color=#58e6d9]concentration[/color], [color=#58e6d9]purity[/color], [color=#58e6d9]sterility[/color], [color=#58e6d9]homogeneity[/color] and [color=#58e6d9]stability[/color]. Only the tests you ticked are revealed; the rest stay unknown.
+    The result lists every tested line with the label value next to the measured one. A line that does not match is marked as failed. A pack that was never tested shows as untested.
+nc-guide-pharma-quality-status = [head=2]Laboratory status[/head]
+    A batch is [color=#58e6d9]untested[/color], [color=#58e6d9]partially tested[/color], [color=#58e6d9]certified[/color], [color=#58e6d9]rejected[/color] or [color=#58e6d9]recalled[/color]. Only a certified batch has passed every test within tolerance: concentration within 10% of the label, purity within 5%, and sterility, homogeneity and stability above their minimums.
+    A formula's [color=#58e6d9]regulatory status[/color] is free sale, prescription, controlled, clinical only, corporate, banned, recalled, unknown or experimental. It describes how the formula may be handled, not how good a particular batch is.
+nc-guide-pharma-quality-grades = [head=2]Grades and labels[/head]
+    The pack label shows the [color=#58e6d9]grade[/color] (street, medical or corporate) and whether the producer claims it sterile. A medical grade batch needs purity, sterility and homogeneity of at least 90%, 90% and 85%; a corporate grade batch needs 97%, 97% and 95%. A quick synthesis never claims sterility.
+    A [color=#58e6d9]masking agent[/color] hides the real composition: the QC analyzer warns when it finds one, because the batch is worse than a simple purity check shows.
+nc-guide-pharma-quality-impurities = [head=2]Impurities[/head]
+    Raw material carries hidden [color=#58e6d9]contaminants[/color]. Seized samples carry the most, bioreactor biomass and corporate stock carry a little, and a home brew carries what its sludge brings. Extraction passes them into the source canister, synthesis passes them into the batch, and the patient receives them as adulterant toxin. Low sterility adds a sepsis burden on top.
+    The label never shows contaminants; only QC and the patient's condition do.
+nc-guide-pharma-quality-cold = [head=2]Cold chain[/head]
+    Some formulas are unstable and spoil at room temperature; examining a pack of such a formula says it must be kept refrigerated. [color=#58e6d9]Cold storage[/color] stops the spoilage while the batch is inside and the cabinet has power. A stabilizer, a cold solvent and clean synthesis all make a batch more stable. Keep unstable batches cold from the moment they are made.
+nc-guide-pharma-quality-waste = [head=2]Waste[/head]
+    Every station makes hazardous waste into its own tank and refuses to work when the tank is full. Swap in an empty [color=#58e6d9]waste canister[/color] and burn the full one in the [color=#58e6d9]waste incinerator[/color], which needs power.
+guide-entry-nc-pharma-quality = Quality control and storage
+nc-guide-pharma-reactor-h = [head=1]Thermoreactor and experimental formulas[/head]
+nc-guide-pharma-reactor-rd = [head=2]The research console[/head]
+    The [color=#58e6d9]research console[/color] lists the laboratory's formulas. Pick a formula to see its card and develop a [color=#58e6d9]new version[/color]: choose a name, a delivery form, a concentration and up to two modifiers. The console shows a forecast before you commit: peak concentration, toxic margin, absorption time, toxicity and cost. A new version is [color=#58e6d9]experimental[/color].
+    An experimental version can be approved only after quality control has certified a batch of it. A compound that has not been identified by chemical analysis cannot be approved. The laboratory holds a limited number of derived formulas.
+    The [color=#58e6d9]laboratory journal[/color] records what was produced, tested, administered, approved and created, with who did it and details such as input purity, number of QC tests, and how a patient took a dose. You can attach your own [color=#58e6d9]note[/color] to a version.
+nc-guide-pharma-reactor-unknown = [head=2]Unknown compounds[/head]
+    An unlabelled raw sample hides an unidentified compound. Run it through the extraction station to [color=#58e6d9]isolate[/color] it. The result is an experimental formula with a code name. Its card starts mostly unknown; each study fills lines in as suspected, then confirmed. Use the vivarium and the metabolic analyzer to learn what it does before anyone takes it for real.
+nc-guide-pharma-reactor-reactor = [head=2]The thermoreactor[/head]
+    Only a formula under development may be made by hand in the reactor, and a manual run is limited to a small amount of material. The gauges show temperature, pressure, mixing, catalyst charges, reaction progress and instability. The windows depend on the reaction type, in °C:
+    • [color=#58e6d9]stable[/color]: optimal 60-75, safe 45-95.
+    • [color=#58e6d9]exothermic[/color]: optimal 55-70, safe 40-85; it heats itself.
+    • [color=#58e6d9]volatile[/color]: optimal 50-62, safe 38-75, pressure soft limit 170 and hard limit 240; hazardous.
+    Controls: [color=#58e6d9]heater[/color], [color=#58e6d9]cooler[/color], [color=#58e6d9]stirrer[/color], [color=#58e6d9]pressure relief valve[/color] (slows the reaction), [color=#58e6d9]ventilation[/color] (reduces a toxic release), [color=#58e6d9]catalyst[/color], [color=#58e6d9]quench[/color] and [color=#58e6d9]emergency stop[/color] (the material is lost).
+nc-guide-pharma-reactor-accident = [head=2]When it goes wrong[/head]
+    Watch the warnings: temperature above the optimal window, close to the safe limit, rising pressure, poor mixing that creates hot spots, a runaway reaction, an unstable mixture. If you ignore them the mixture [color=#58e6d9]degrades into sludge[/color], the reactor [color=#58e6d9]vents toxic fumes[/color] that damage the lungs, the vessel [color=#58e6d9]ruptures and catches fire[/color], or at worst [color=#58e6d9]explodes violently[/color]. Cool it, vent it, quench it or stop it in time, and keep the ventilation on.
+guide-entry-nc-pharma-reactor = Thermoreactor and experimental formulas
+nc-guide-pharma-pharmacopoeia-h = [head=1]Pharmacopoeia and interactions[/head]
+nc-guide-pharma-pharmacopoeia-drugs = [head=2]Drugs[/head]
+    {""}[color=#58e6d9]Trauma analgesic[/color] — suppresses pain without repairing the injury.
+    {""}[color=#58e6d9]Surgical anesthetic[/color] — controlled anesthesia; too much depresses breathing.
+    {""}[color=#58e6d9]Clinical sedative[/color] — reduces awareness and movement.
+    {""}[color=#58e6d9]Vasopressor[/color] — supports cardiac output and vascular tone.
+    {""}[color=#58e6d9]Vasodilator[/color] — reduces vascular tone; unsafe dosing can collapse perfusion.
+    {""}[color=#58e6d9]Antiarrhythmic[/color] — stabilizes an unstable rhythm but cannot restart an arrested heart.
+    {""}[color=#58e6d9]Respiratory stimulant[/color] — improves working lungs; it cannot replace absent ones.
+    {""}[color=#58e6d9]Clinical stimulant[/color] — raises arousal and cardiopulmonary drive; overdose destabilizes physiology.
+    {""}[color=#58e6d9]Procoagulant[/color] — reduces active bleeding through systemic clot support; it does not close a wound.
+    {""}[color=#58e6d9]Anticoagulant[/color] — reduces clotting and increases bleeding.
+    {""}[color=#58e6d9]Broad-spectrum antibiotic[/color], [color=#58e6d9]gram-positive antibiotic[/color], [color=#58e6d9]gram-negative antibiotic[/color] — suppress susceptible wound infection while the concentration is maintained.
+    {""}[color=#58e6d9]Systemic antitoxin[/color] — speeds the clearance of circulating toxic burden through working organs.
+    {""}[color=#58e6d9]Immunosuppressant[/color] — suppresses transplant rejection while raising vulnerability to infection.
+    {""}[color=#58e6d9]Synthetic oxygen carrier[/color] — adds oxygen capacity without replacing lost blood volume.
+    {""}[color=#58e6d9]Cyberware coolant agent[/color] — removes measured excess heat from compatible implants.
+    {""}[color=#58e6d9]Maintenance analgesic[/color] — a weaker analgesic for coming off a stronger one.
+    {""}[color=#58e6d9]Sedation reversal agent[/color] and [color=#58e6d9]stimulant reversal agent[/color] — see below.
+    {""}[color=#58e6d9]Clinical euphoric[/color] and [color=#58e6d9]social stimulant[/color] — recreational compounds.
+nc-guide-pharma-pharmacopoeia-inter = [head=2]Interactions[/head]
+    Two drugs together change each other's effect and toxicity:
+    • [color=#58e6d9]Sedative + surgical anesthetic[/color]: stronger effect, much more toxic.
+    • [color=#58e6d9]Sedative + trauma analgesic[/color]: more toxic.
+    • [color=#58e6d9]Sedative + stimulant[/color] or [color=#58e6d9]respiratory stimulant[/color]: weaker effect, more toxic.
+    • [color=#58e6d9]Vasopressor + vasodilator[/color]: each cancels half of the other, a little more toxic.
+    • [color=#58e6d9]Vasopressor + antiarrhythmic[/color]: a little less toxic.
+    • [color=#58e6d9]Procoagulant + anticoagulant[/color]: each cancels half of the other, more toxic.
+    • [color=#58e6d9]Euphoric + sedative[/color] or [color=#58e6d9]trauma analgesic[/color]: more toxic.
+    • [color=#58e6d9]Social stimulant + clinical stimulant[/color]: more toxic.
+    The metabolic analyzer reports a combination as compatible, caution, dangerous or unknown. A compound whose interactions are not charted may be reported as unknown: do not combine it with anything you cannot afford to lose.
+nc-guide-pharma-pharmacopoeia-reversal = [head=2]Antidotes[/head]
+    {""}[color=#58e6d9]Sedation reversal agent[/color] cuts the effect of sedatives, the surgical anesthetic, euphoric and maintenance analgesic to under half and lowers their toxicity. [color=#58e6d9]Stimulant reversal agent[/color] does the same for the clinical stimulant, the social stimulant and NC-X17. Use them to wake a patient or to take the edge off a bad reaction.
+nc-guide-pharma-pharmacopoeia-dep = [head=2]Tolerance and withdrawal[/head]
+    Stimulants, analgesics, sedatives, euphorics and the social stimulant build [color=#58e6d9]tolerance[/color] with every dose, and it fades slowly. When tolerance is high and the drug is gone, [color=#58e6d9]withdrawal[/color] sets in: after stimulants it is [color=#58e6d9]fatigue[/color] that begins after about two minutes and deepens over several, and the social stimulant also leaves fatigue; after analgesics, sedatives and euphorics it is [color=#58e6d9]tremor[/color]. The [color=#58e6d9]maintenance analgesic[/color] gives a weaker, safer level of pain relief to step down from a stronger drug.
+    Recreational compounds go through phases the user feels: onset, peak, decline and comedown. Stimulation, sedation, euphoria, perception, sociability and dissociation each have their own messages.
+guide-entry-nc-pharma-pharmacopoeia = Pharmacopoeia and interactions
+nc-guide-pharma-fielduse-h = [head=1]Field use: local effect and kits[/head]
+nc-guide-pharma-fielduse-local = [head=2]Local effect on wounds[/head]
+    Part of a dose works directly on the wounds, not only through the blood:
+    • an [color=#58e6d9]analgesic[/color] numbs the wound that hurts most;
+    • a [color=#58e6d9]procoagulant[/color] slows the bleeding of the open wound that bleeds hardest;
+    • an [color=#58e6d9]antibiotic[/color] reduces infection in every wound, scaled by how susceptible the strain is.
+    The effect lasts for a limited time and depends on blood supply: poor perfusion carries less of the drug to the wound. The [color=#58e6d9]tissue targeting[/color] modifier and the [color=#58e6d9]surgical gel[/color] form send more of the dose to the local tissue. A dose also still acts on the whole body.
+nc-guide-pharma-fielduse-dress = [head=2]Dressings[/head]
+    A dressing soaks through and can carry contamination: check its saturation and replace a saturated one. [color=#58e6d9]Synthetic skin dressing[/color] is grown in the tissue incubator and is used like a sterile bandage. See the field treatment page for tourniquets and packing.
+nc-guide-pharma-fielduse-bag = [head=2]Trauma Team combat medic bag[/head]
+    A corporate bag for stabilising yourself and the person next to you. It holds 4 trauma analgesic pens, 3 procoagulant pens, 2 respiratory stimulant pens, 2 antitoxin pens, 2 vasopressor pens, 2 gauze and 2 tourniquets. The pens are corporate-grade autoinjectors from clean production: high purity, sterility and stability. The bag is only a container of ready items; it is a quick way to deal with bleeding, pain, poisoning and collapse, not a replacement for a doctor.
+guide-entry-nc-pharma-fielduse = Field use: local effect and kits
+nc-guide-pharma-implants-h = [head=1]Implants and transplants[/head]
+nc-guide-pharma-implants-prep = [head=2]Preparing a module for living tissue[/head]
+    A module that has not been prepared still works, but the patient has a rough first minutes. Prepare it on the bench, before it is installed; once it is in the body it is too late. Grow the products in the tissue incubator from the implant preparation kit:
+    • [color=#58e6d9]Biocompatible coating[/color] — the body accepts the surface.
+    • [color=#58e6d9]Antibacterial material[/color] — keeps infection out of the surgical site.
+    • [color=#58e6d9]Tissue interface[/color] — tissue grows into the implant, so it is accepted sooner.
+    • [color=#58e6d9]Regenerative matrix[/color] — the tissue around the implant heals faster.
+    • [color=#58e6d9]Neuroconductive gel[/color] — restores the neural contact of an implant.
+    Examining a module shows its biocompatibility: how well it fits and how clean it is.
+nc-guide-pharma-implants-trans = [head=2]Transplants[/head]
+    After a transplant the body may reject the graft. The [color=#58e6d9]immunosuppressant[/color] suppresses rejection but raises the patient's vulnerability to infection, so keep the wounds clean and watch for infection while it is active. Donated blood must be matched to the recipient and kept cold.
+guide-entry-nc-pharma-implants = Implants and transplants
+nc-guide-pharma-walkthrough-h = [head=1]Your first drug, step by step[/head]
+nc-guide-pharma-walkthrough-steps = 1. [color=#58e6d9]Get raw material[/color]: a starter crate, a corporate or street purchase, a seized sample, or brew your own (see Brewing raw material).
+    2. [color=#58e6d9]Extract[/color]: put the raw material into the extraction station and activate it. You get a source canister with a purity of its own. Empty the waste tank when it fills.
+    3. [color=#58e6d9]Purify[/color] (optional): pass the canister through the purifier for higher purity at a cost in material, filters and time.
+    4. [color=#58e6d9]Synthesize[/color]: put the canister into the synthesizer, pick a formula, a production mode and how much material to use. The forecast shows doses, time and cost. Start production. You get a batch with its own code.
+    5. [color=#58e6d9]Treat[/color] (optional): put the pack into the sterile cabinet to raise sterility, or the formulation station to even out the mixing; both cost a little stability.
+    6. [color=#58e6d9]Fill[/color] (optional): the filling station splits a pack into single-dose packs.
+    7. [color=#58e6d9]Test[/color]: insert a spare pack into the QC analyzer and tick the tests you care about. Do not use a batch that fails.
+    8. [color=#58e6d9]Store[/color]: keep unstable batches in cold storage.
+    9. [color=#58e6d9]Administer[/color]: scan the patient, check active drugs and toxic burden, give the dose, then scan again and watch the response.
+guide-entry-nc-pharma-walkthrough = Your first drug, step by step

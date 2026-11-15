@@ -1,0 +1,12 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-reactor-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-reactor-rd"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-reactor-unknown"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-reactor-reactor"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-reactor-accident"/>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaRdConsole"/>
+<GuideEntityEmbed Entity="NCPharmaReactor"/>
+<GuideEntityEmbed Entity="NCPharmaRawSeizedSample"/>
+</Box>
+</Document>

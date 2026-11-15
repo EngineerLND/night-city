@@ -1,0 +1,10 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-walkthrough-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-walkthrough-steps"/>
+<Box>
+<GuideEntityEmbed Entity="NCPharmaExtractor"/>
+<GuideEntityEmbed Entity="NCPharmaSynthesizerClinical"/>
+<GuideEntityEmbed Entity="NCPharmaFillingStation"/>
+<GuideEntityEmbed Entity="NCPharmaQcAnalyzer"/>
+</Box>
+</Document>

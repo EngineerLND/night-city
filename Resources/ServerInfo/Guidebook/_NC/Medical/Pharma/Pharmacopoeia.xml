@@ -1,0 +1,19 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-pharmacopoeia-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-pharmacopoeia-drugs"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-pharmacopoeia-inter"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-pharmacopoeia-reversal"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-pharmacopoeia-dep"/>
+<Box>
+<GuideEntityEmbed Entity="NCSyringeTraumaAnalgesic"/>
+<GuideEntityEmbed Entity="NCSyringeSedative"/>
+<GuideEntityEmbed Entity="NCSyringeVasopressor"/>
+<GuideEntityEmbed Entity="NCSyringeProcoagulant"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="NCSyringeAntitoxin"/>
+<GuideEntityEmbed Entity="NCSyringeStimulant"/>
+<GuideEntityEmbed Entity="NCSyringeBroadAntibiotic"/>
+<GuideEntityEmbed Entity="NCSyringeSyntheticOxygenCarrier"/>
+</Box>
+</Document>

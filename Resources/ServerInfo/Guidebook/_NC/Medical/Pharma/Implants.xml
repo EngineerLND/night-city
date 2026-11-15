@@ -1,0 +1,15 @@
+<Document>
+<NCGuideLocalizedText Key="nc-guide-pharma-implants-h"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-implants-prep"/>
+<NCGuideLocalizedText Key="nc-guide-pharma-implants-trans"/>
+<Box>
+<GuideEntityEmbed Entity="NCLabTissueIncubator"/>
+<GuideEntityEmbed Entity="NCBiocompatCoating"/>
+<GuideEntityEmbed Entity="NCAntibacterialMaterial"/>
+<GuideEntityEmbed Entity="NCTissueInterface"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="NCRegenerativeMatrix"/>
+<GuideEntityEmbed Entity="NCNeuroconductiveGel"/>
+</Box>
+</Document>
