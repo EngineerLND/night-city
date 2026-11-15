@@ -82,10 +82,17 @@ public sealed class NCCyberwareSurgeryTest : GameTest
         var mount = Stroke(body, user, head, tool, null, "NCSurgeryToolCyberware", "NCZoneHead");
         var result = _effects.ApplyStroke(mount);
         Assert.That(result.Accepted, Is.True);
-        Assert.That(result.Failure, Is.EqualTo(NCFreeformSurgeryFailure.CyberwareCalibrationRequired));
+        // The neural link has its own medical fixation stages on the brain; calibration is only asked for after them.
+        Assert.That(result.Failure, Is.EqualTo(NCFreeformSurgeryFailure.SkeletalSurgeryIncomplete));
         Assert.That(SComp<NCCyberwareComponent>(implant).Calibrated, Is.False);
         Assert.That(_effects.ApplyStroke(mount).Applied, Is.False);
         Assert.That(SComp<ChildOrganComponent>(implant).Parent, Is.EqualTo(head));
+        foreach (var capability in new[]
+                 {
+                     "NCSurgeryToolFixMedical", "NCSurgeryToolConnectMedical", "NCSurgeryToolCheckMedical",
+                 })
+            Assert.That(_effects.ApplyStroke(Stroke(body, user, head, tool, implant, capability, "NCZoneHead")).Accepted,
+                Is.True, capability);
         var test = Stroke(body, user, head, tool, implant, "NCSurgeryToolCyberwareCalibration", "NCZoneHead");
         var before = _battery.GetCharge(cell);
         Assert.That(_effects.ApplyStroke(test).Accepted, Is.True);

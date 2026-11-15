@@ -389,9 +389,18 @@ public sealed partial class NCFreeformSurgeryEffectSystem : EntitySystem
             return false;
 
         var fraction = Math.Clamp(power, 0f, 1f);
-        wound.ExternalBleedRate *= 1f - fraction;
+        // NC-Edit-Start: wound progression recomputes the bleed from the Initial* rates on every healing tick,
+        // so a clamp that only lowered the current rate was silently undone. Lower both, the clamp is permanent.
+        var externalFactor = 1f - fraction;
+        wound.ExternalBleedRate *= externalFactor;
+        wound.InitialExternalBleedRate *= externalFactor;
         if (context.Depth >= 0.45f)
-            wound.InternalBleedRate *= 1f - fraction * (cauterize ? 0.65f : 0.4f);
+        {
+            var internalFactor = 1f - fraction * (cauterize ? 0.65f : 0.4f);
+            wound.InternalBleedRate *= internalFactor;
+            wound.InitialInternalBleedRate *= internalFactor;
+        }
+        // NC-Edit-End
         wound.TreatmentFlags |= cauterize ? NCWoundTreatmentFlags.Cauterized : NCWoundTreatmentFlags.Clamped;
         if (cauterize)
         {
