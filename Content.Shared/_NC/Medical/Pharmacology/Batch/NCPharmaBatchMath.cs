@@ -407,6 +407,8 @@ public static class NCPharmaBatchMath
         const uint offset = 2166136261u;
         const uint prime = 16777619u;
         var hash = offset;
+        // An ordinary array on purpose: Content.Shared is passed through ILVerify, which cannot verify stackalloc.
+        // It holds the same 16 bytes TryWriteBytes would write, so the noise of every batch is unchanged.
         var bytes = batchId.ToByteArray();
         foreach (var value in bytes)
         {

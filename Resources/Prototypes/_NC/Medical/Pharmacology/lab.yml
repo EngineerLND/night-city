@@ -520,6 +520,7 @@
         whitelist:
           components:
           - NCPharmaRawMaterial
+          - DrainableSolution
   - type: NCPharmaWasteTank
   - type: NCPharmaExtractor
 - type: entity

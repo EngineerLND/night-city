@@ -347,3 +347,15 @@ ent-NCTraumaTeamPenVasopressor = медпен Trauma Team: вазопрессо�
 ent-NCTraumaTeamPenVasopressor.desc = Корпоративный автоинъектор. Чистое производство: высокая чистота, стерильность и стабильность.
 ent-NCTraumaTeamCombatMedicBag = сумка боевого медика Trauma Team
 ent-NCTraumaTeamCombatMedicBag.desc = Корпоративные автоинъекторы, марля и жгуты, чтобы стабилизировать себя и того, кто рядом.
+
+# --- Сваренное сырьё ---------------------------------------------------------------------------------------
+reagent-name-nc-pharma-precursor-substrate = био-субстрат
+reagent-desc-nc-pharma-precursor-substrate = Густая органическая основа. Сама по себе безвредна, сырьём становится только после варки.
+reagent-name-nc-pharma-precursor-solvent = стерильный растворитель
+reagent-desc-nc-pharma-precursor-solvent = Чистая жидкость-носитель для варки сырья.
+reagent-name-nc-pharma-raw-broth = сырьевой бульон
+reagent-desc-nc-pharma-raw-broth = Сваренное сырьё. Чем чище раствор, тем чище экстракт.
+reagent-name-nc-pharma-sludge = шлам варки
+reagent-desc-nc-pharma-sludge = То, что остаётся от испорченной варки. Попадает в экстракт как примесь.
+nc-pharma-origin-brewed = кустарная варка
+nc-pharma-brew-unusable = В ёмкости нет пригодной варки.

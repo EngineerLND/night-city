@@ -347,3 +347,15 @@ ent-NCTraumaTeamPenVasopressor = Trauma Team pen: vasopressor
 ent-NCTraumaTeamPenVasopressor.desc = A corporate-grade autoinjector. Clean production: high purity, sterility and stability.
 ent-NCTraumaTeamCombatMedicBag = Trauma Team combat medic bag
 ent-NCTraumaTeamCombatMedicBag.desc = Corporate autoinjectors, gauze and tourniquets to stabilise yourself and the person next to you.
+
+# --- Brewed raw material -----------------------------------------------------------------------------------
+reagent-name-nc-pharma-precursor-substrate = bio-substrate
+reagent-desc-nc-pharma-precursor-substrate = A thick organic base. Harmless on its own; it only becomes raw material once it is brewed.
+reagent-name-nc-pharma-precursor-solvent = sterile solvent
+reagent-desc-nc-pharma-precursor-solvent = A clean carrier liquid for brewing raw material.
+reagent-name-nc-pharma-raw-broth = raw broth
+reagent-desc-nc-pharma-raw-broth = A brewed raw material. The cleaner the solution, the purer the extract.
+reagent-name-nc-pharma-sludge = brew sludge
+reagent-desc-nc-pharma-sludge = What a spoiled brew leaves behind. It ends up in the extract as contamination.
+nc-pharma-origin-brewed = a home brew
+nc-pharma-brew-unusable = The container holds no usable brew.
