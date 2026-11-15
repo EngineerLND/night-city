@@ -49,6 +49,7 @@ public sealed partial class NCFreeformSurgeryWindow : FancyWindow
         RobustXamlLoader.Load(this);
         _prototypes = prototypes;
 
+        ZoomToggle.OnToggled += args => SurgicalField.SetZoomEnabled(args.Pressed);
         SurgicalField.InteractionRequested +=
             (zone, surface, wound, structure, minimumDepth, position) =>
                 InteractionRequested?.Invoke(zone, surface, wound, structure, minimumDepth, position);

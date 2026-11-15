@@ -34,20 +34,20 @@
   bodyCanvasSize: "128, 192"
   bodyZones:
     NCZoneHead: { position: "50, 0", size: "28, 30", openingSize: "25, 25", incisionDirection: "0, 1", incisionLength: 0.3 }
-    NCZoneEyes: { position: "55, 10", size: "8, 6", openingSize: "8, 10", incisionDirection: "1, 0", incisionLength: 0.22 }
-    NCZoneEyesRight: { position: "65, 10", size: "8, 6", openingSize: "8, 10", incisionDirection: "1, 0", incisionLength: 0.22 }
-    NCZoneMouth: { position: "57, 18", size: "14, 7", openingSize: "16, 10", incisionDirection: "1, 0", incisionLength: 0.22 }
+    NCZoneEyes: { position: "55, 10", size: "8, 6", openingSize: "10, 12", incisionDirection: "1, 0", incisionLength: 0.22 }
+    NCZoneEyesRight: { position: "65, 10", size: "8, 6", openingSize: "10, 12", incisionDirection: "1, 0", incisionLength: 0.22 }
+    NCZoneMouth: { position: "57, 18", size: "14, 7", openingSize: "18, 12", incisionDirection: "1, 0", incisionLength: 0.22 }
     NCZoneChest: { position: "42, 29", size: "44, 35", openingSize: "42, 34", incisionDirection: "0, 1", incisionLength: 0.42 }
     NCZoneAbdomen: { position: "47, 62", size: "34, 28", openingSize: "32, 27", incisionDirection: "0, 1", incisionLength: 0.38 }
     NCZoneGroin: { position: "47, 88", size: "34, 23", openingSize: "30, 22", incisionDirection: "1, 0", incisionLength: 0.32 }
-    NCZoneArmRight: { position: "24, 31", size: "24, 59", openingSize: "21, 34", incisionDirection: "0, 1", incisionLength: 0.34 }
-    NCZoneHandRight: { position: "14, 84", size: "23, 27", openingSize: "19, 20", incisionDirection: "0, 1", incisionLength: 0.3 }
-    NCZoneArmLeft: { position: "80, 31", size: "24, 59", openingSize: "21, 34", incisionDirection: "0, 1", incisionLength: 0.34 }
-    NCZoneHandLeft: { position: "91, 84", size: "23, 27", openingSize: "19, 20", incisionDirection: "0, 1", incisionLength: 0.3 }
-    NCZoneLegRight: { position: "39, 103", size: "25, 62", openingSize: "22, 39", incisionDirection: "0, 1", incisionLength: 0.36 }
-    NCZoneFootRight: { position: "29, 159", size: "34, 32", openingSize: "25, 18", incisionDirection: "1, 0", incisionLength: 0.32 }
-    NCZoneLegLeft: { position: "64, 103", size: "25, 62", openingSize: "22, 39", incisionDirection: "0, 1", incisionLength: 0.36 }
-    NCZoneFootLeft: { position: "65, 159", size: "34, 32", openingSize: "25, 18", incisionDirection: "1, 0", incisionLength: 0.32 }
+    NCZoneArmRight: { position: "24, 31", size: "24, 59", openingSize: "24, 40", incisionDirection: "0, 1", incisionLength: 0.34 }
+    NCZoneHandRight: { position: "14, 84", size: "23, 27", openingSize: "22, 24", incisionDirection: "0, 1", incisionLength: 0.3 }
+    NCZoneArmLeft: { position: "80, 31", size: "24, 59", openingSize: "24, 40", incisionDirection: "0, 1", incisionLength: 0.34 }
+    NCZoneHandLeft: { position: "91, 84", size: "23, 27", openingSize: "22, 24", incisionDirection: "0, 1", incisionLength: 0.3 }
+    NCZoneLegRight: { position: "39, 103", size: "25, 62", openingSize: "25, 46", incisionDirection: "0, 1", incisionLength: 0.36 }
+    NCZoneFootRight: { position: "29, 159", size: "34, 32", openingSize: "28, 22", incisionDirection: "1, 0", incisionLength: 0.32 }
+    NCZoneLegLeft: { position: "64, 103", size: "25, 62", openingSize: "25, 46", incisionDirection: "0, 1", incisionLength: 0.36 }
+    NCZoneFootLeft: { position: "65, 159", size: "34, 32", openingSize: "28, 22", incisionDirection: "1, 0", incisionLength: 0.32 }
   incisionSprite: "1, 1"
   closedSiteSprite: "0, 0"
   retractedSiteSprite: "1, 0"

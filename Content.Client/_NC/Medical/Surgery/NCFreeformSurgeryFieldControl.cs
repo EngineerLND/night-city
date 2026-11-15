@@ -84,6 +84,12 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
         _body.SetPredictedDepth(depth);
     }
 
+    /// <summary>Magnifies the selected operative zone while its incision is open.</summary>
+    public void SetZoomEnabled(bool enabled)
+    {
+        _body.ZoomEnabled = enabled;
+    }
+
     public void ResolvePendingInteraction()
     {
         _body.ResolvePendingInteraction();
@@ -236,6 +242,12 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
 
         public Vector2 CanvasSize => _canvasSize;
 
+        /// <summary>Magnify the operative zone while one of its incisions is open.</summary>
+        public bool ZoomEnabled { get; set; } = true;
+
+        private const float MaximumZoom = 3.5f;
+        private const float ZoomZoneFill = 0.82f;
+
         public SchematicBodyField(IClickMapManager clickMaps)
         {
             _clickMaps = clickMaps;
@@ -280,6 +292,8 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
             }
 
             var action = ResolveSelectedAction();
+            // The view may be magnified; every hit test below works in the unmagnified content space.
+            var pointer = ViewToContent(args.RelativePixelPosition);
             var zone = default(ProtoId<NCTargetZonePrototype>);
             var surface = _state.Surface;
             var local = Vector2.Zero;
@@ -289,7 +303,7 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
             var forceRetractedIncision = action is (NCFreeformSurgeryAction.Incise or
                     NCFreeformSurgeryAction.Autopsy) &&
                 TryResolveRetractedIncisionAtScreen(
-                    args.RelativePixelPosition,
+                    pointer,
                     out zone,
                     out local,
                     out screenIncision);
@@ -300,7 +314,7 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
             // stable ids make overlapping trauma deterministic and select the original impact surface.
             var screenWound = default(NCFreeformSurgeryWoundSummary);
             var hitWound = !forceRetractedIncision && TryResolveWoundAtScreen(
-                args.RelativePixelPosition,
+                pointer,
                 out screenWound,
                 out local);
             if (hitWound)
@@ -311,21 +325,21 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
             Guid? woundId = hitWound ? screenWound.WoundId : null;
             var screenStructure = default(NCFreeformSurgeryStructureSummary);
             var hitStructure = !forceRetractedIncision && !hitWound && TryResolveStructureAtScreen(
-                args.RelativePixelPosition,
+                pointer,
                 out zone,
                 out surface,
                 out local,
                 out screenStructure);
             var hitIncision = forceRetractedIncision ||
                               !hitWound && !hitStructure && TryResolveIncisionAtScreen(
-                                  args.RelativePixelPosition,
+                                  pointer,
                                   out zone,
                                   out local,
                                   out screenIncision);
             if (hitIncision)
                 surface = screenIncision.Surface;
             if (!hitWound && !hitStructure && !hitIncision &&
-                !TryResolvePoint(args.RelativePixelPosition, out zone, out local))
+                !TryResolvePoint(pointer, out zone, out local))
             {
                 return;
             }
@@ -379,7 +393,7 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
         protected override void MouseMove(GUIMouseMoveEventArgs args)
         {
             base.MouseMove(args);
-            ToolTip = ResolveStructureTooltip(args.RelativePixelPosition);
+            ToolTip = ResolveStructureTooltip(ViewToContent(args.RelativePixelPosition));
         }
 
         protected override void MouseWheel(GUIMouseWheelEventArgs args)
@@ -394,6 +408,52 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
         protected override void Draw(DrawingHandleScreen handle)
         {
             base.Draw(handle);
+            var zoomed = TryGetView(out var zoom, out var center);
+            if (zoomed)
+            {
+                handle.SetTransform(Matrix3x2.CreateTranslation(-center) * Matrix3x2.CreateScale(zoom) *
+                                    Matrix3x2.CreateTranslation(PixelSize * 0.5f + GlobalPixelPosition));
+            }
+
+            DrawContent(handle);
+            if (zoomed)
+                handle.SetTransform(Matrix3x2.CreateTranslation(GlobalPixelPosition));
+        }
+
+        /// <summary>
+        /// Zoom is a pure view transform. Drawing runs under it and input is mapped back through
+        /// <see cref="ViewToContent"/>, so the magnified field is clicked exactly like the normal one.
+        /// </summary>
+        private bool TryGetView(out float zoom, out Vector2 center)
+        {
+            zoom = 1f;
+            center = PixelSize * 0.5f;
+            if (!ZoomEnabled || _state == null || _visuals == null || PixelWidth <= 0f || PixelHeight <= 0f ||
+                !TryGetZone(_state.SelectedZone, out var projection) ||
+                !TryResolveOpenIncision(_state.SelectedZone, _state.Surface, out _))
+                return false;
+
+            var bounds = ZoneScreenBounds(projection);
+            var fit = MathF.Min(PixelWidth / MathF.Max(1f, bounds.Width), PixelHeight / MathF.Max(1f, bounds.Height));
+            zoom = Math.Clamp(fit * ZoomZoneFill, 1f, MaximumZoom);
+            if (zoom <= 1.01f)
+                return false;
+
+            // Keep the magnified window inside the body canvas so empty space is never shown.
+            var half = PixelSize / (2f * zoom);
+            center = Vector2.Clamp(bounds.Center, half, PixelSize - half);
+            return true;
+        }
+
+        private Vector2 ViewToContent(Vector2 viewPoint)
+        {
+            return TryGetView(out var zoom, out var center)
+                ? (viewPoint - PixelSize * 0.5f) / zoom + center
+                : viewPoint;
+        }
+
+        private void DrawContent(DrawingHandleScreen handle)
+        {
             if (_state == null || _visuals == null)
                 return;
 
@@ -1129,7 +1189,7 @@ public sealed partial class NCFreeformSurgeryFieldControl : Container
             size = Vector2.Min(Vector2.Max(size, new Vector2(CanvasScale * 8f)), PixelSize);
             var topLeft = Vector2.Clamp(screenCenter - size * 0.5f, Vector2.Zero, PixelSize - size);
             site = UIBox2.FromDimensions(topLeft, size);
-            var margin = size * 0.17f;
+            var margin = size * 0.08f;
             aperture = UIBox2.FromDimensions(topLeft + margin, size - margin * 2f);
             return aperture.Width > 0f && aperture.Height > 0f;
         }

@@ -87,6 +87,9 @@ SPDX-FileComment: Community Funding Additional Permission applies; see COMMUNITY
                                 <Label Text="{Loc 'nc-surgery-ui-depth'}" FontColorOverride="#62BDB6" MinWidth="110" />
                                 <BoxContainer Name="DepthButtons" Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="2" />
                                 <Label Name="DepthLabel" MinWidth="130" HorizontalAlignment="Right" />
+                                <Button Name="ZoomToggle" ToggleMode="True" Pressed="True"
+                                        Text="{Loc 'nc-surgery-ui-zoom'}"
+                                        ToolTip="{Loc 'nc-surgery-ui-zoom-tooltip'}" />
                             </BoxContainer>
                             <Label Text="{Loc 'nc-surgery-ui-controls'}"
                                    FontColorOverride="#829C9E" HorizontalAlignment="Center" />
